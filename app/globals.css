@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+@theme {
+  /* --- Fonts (wired to next/font CSS variables set in app/layout.tsx) --- */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-playfair), ui-serif, Georgia, serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
+  --font-display: var(--font-bebas), var(--font-inter), sans-serif;
+
+  /* --- MBG palette (VIBES.md) --- */
+  /* Primary (govt-ish) */
+  --color-mbg-red: #c9302c; /* Merah Indonesia */
+  --color-mbg-white: #ffffff;
+  --color-mbg-ink: #1a1a1a; /* hitam-keabuan untuk text */
+
+  /* Secondary (chaos) */
+  --color-mbg-yellow: #ffb400; /* warning */
+  --color-mbg-green: #16a34a; /* event positif */
+  --color-mbg-orange: #f97316; /* instability */
+  --color-mbg-purple: #7c3aed; /* lauk_misterius */
+
+  /* Accent */
+  --color-mbg-cream: #fff5dc; /* background ala kertas pemerintah */
+  --color-mbg-gold: #fcd34d; /* highlight emas untuk achievement */
+}
+
+:root {
+  --background: var(--color-mbg-cream);
+  --foreground: var(--color-mbg-ink);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+/* TV-style running ticker */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 32s linear infinite;
+}
+
+/* Critical-stability alarm flash */
+@keyframes alarm-flash {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+.animate-alarm {
+  animation: alarm-flash 0.7s ease-in-out infinite;
+}
+
+/* Subtle screen shake used at high instability / collapse */
+@keyframes screen-shake {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(-2px, 1px);
+  }
+  50% {
+    transform: translate(2px, -1px);
+  }
+  75% {
+    transform: translate(-1px, 2px);
+  }
+}
+
+.animate-shake {
+  animation: screen-shake 0.25s linear infinite;
+}

@@ -1,0 +1,6 @@
+{
+  "crons": [
+    { "path": "/api/cron/trigger-event", "schedule": "* * * * *" },
+    { "path": "/api/cron/reset-daily", "schedule": "0 17 * * *" }
+  ]
+}
